@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkturbo_b2b_docs=globalThis.webpackChunkturbo_b2b_docs||[]).push([[4583],{6107(b,o,r){r.r(o),r.d(o,{default:()=>t});r(6540);var s=r(6347),u=r(4848);function t(){return(0,u.jsx)(s.rd,{to:"/docs/overview/"})}}}]);

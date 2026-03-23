@@ -1,0 +1,27 @@
+{
+  "id": "architecture/data-flow",
+  "title": "Data Flow",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/02-architecture/data-flow.md",
+  "sourceDirName": "02-architecture",
+  "slug": "/architecture/data-flow",
+  "permalink": "/docs/architecture/data-flow",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/02-architecture/data-flow.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Architecture",
+    "permalink": "/docs/architecture/"
+  },
+  "next": {
+    "title": "Module Boundaries",
+    "permalink": "/docs/architecture/module-boundaries"
+  }
+}

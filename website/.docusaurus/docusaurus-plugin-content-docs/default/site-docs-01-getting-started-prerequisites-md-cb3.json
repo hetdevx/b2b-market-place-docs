@@ -1,0 +1,27 @@
+{
+  "id": "getting-started/prerequisites",
+  "title": "Prerequisites",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/01-getting-started/prerequisites.md",
+  "sourceDirName": "01-getting-started",
+  "slug": "/getting-started/prerequisites",
+  "permalink": "/docs/getting-started/prerequisites",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/01-getting-started/prerequisites.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Getting Started",
+    "permalink": "/docs/getting-started/"
+  },
+  "next": {
+    "title": "Local Development",
+    "permalink": "/docs/getting-started/local-development"
+  }
+}

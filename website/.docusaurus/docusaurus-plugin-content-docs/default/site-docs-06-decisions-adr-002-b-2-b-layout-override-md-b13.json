@@ -1,0 +1,24 @@
+{
+  "id": "decisions/adr-002-b2b-layout-override",
+  "title": "ADR-002: B2B Layout Override Approach",
+  "description": "Date: 2026-03-14",
+  "source": "@site/../docs/06-decisions/adr-002-b2b-layout-override.md",
+  "sourceDirName": "06-decisions",
+  "slug": "/decisions/adr-002-b2b-layout-override",
+  "permalink": "/docs/decisions/adr-002-b2b-layout-override",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/06-decisions/adr-002-b2b-layout-override.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "ADR-001: Documentation Strategy for Turbo B2B",
+    "permalink": "/docs/decisions/adr-001-docs-strategy"
+  },
+  "next": {
+    "title": "ADR Template",
+    "permalink": "/docs/decisions/adr-template"
+  }
+}

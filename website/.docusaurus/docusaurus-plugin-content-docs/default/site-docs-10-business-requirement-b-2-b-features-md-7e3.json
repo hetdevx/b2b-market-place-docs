@@ -1,0 +1,23 @@
+{
+  "id": "business-requirement/b2b-features",
+  "title": "B2B Features",
+  "description": "Owner: B2B Product Team",
+  "source": "@site/../docs/10-business-requirement/b2b-features.md",
+  "sourceDirName": "10-business-requirement",
+  "slug": "/business-requirement/b2b-features",
+  "permalink": "/docs/business-requirement/b2b-features",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/10-business-requirement/b2b-features.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Business Requirements",
+    "permalink": "/docs/business-requirement/"
+  }
+}

@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkturbo_b2b_docs=globalThis.webpackChunkturbo_b2b_docs||[]).push([[8644],{8644(b,c,e){e.d(c,{createArchitectureServices:()=>r.S});var r=e(5877);e(6902)}}]);

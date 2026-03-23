@@ -1,0 +1,27 @@
+{
+  "id": "theme/global-config",
+  "title": "Global Config Reference",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/09-theme/global-config.md",
+  "sourceDirName": "09-theme",
+  "slug": "/theme/global-config",
+  "permalink": "/docs/theme/global-config",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/09-theme/global-config.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Theme",
+    "permalink": "/docs/theme/"
+  },
+  "next": {
+    "title": "Copilot.live Integration",
+    "permalink": "/docs/theme/copilot-integration"
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "id": "overview/index",
+  "title": "Overview",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/00-overview/index.md",
+  "sourceDirName": "00-overview",
+  "slug": "/overview/",
+  "permalink": "/docs/overview/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/00-overview/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1,
+    "slug": "/overview/"
+  },
+  "sidebar": "mainSidebar",
+  "next": {
+    "title": "Getting Started",
+    "permalink": "/docs/getting-started/"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "theme/webpack",
+  "title": "Webpack Configuration",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/09-theme/webpack.md",
+  "sourceDirName": "09-theme",
+  "slug": "/theme/webpack",
+  "permalink": "/docs/theme/webpack",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/09-theme/webpack.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Copilot.live Integration",
+    "permalink": "/docs/theme/copilot-integration"
+  },
+  "next": {
+    "title": "Business Requirements",
+    "permalink": "/docs/business-requirement/"
+  }
+}

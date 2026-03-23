@@ -1,0 +1,27 @@
+{
+  "id": "getting-started/local-development",
+  "title": "Local Development",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/01-getting-started/local-development.md",
+  "sourceDirName": "01-getting-started",
+  "slug": "/getting-started/local-development",
+  "permalink": "/docs/getting-started/local-development",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/01-getting-started/local-development.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Prerequisites",
+    "permalink": "/docs/getting-started/prerequisites"
+  },
+  "next": {
+    "title": "Architecture",
+    "permalink": "/docs/architecture/"
+  }
+}

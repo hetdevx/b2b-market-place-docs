@@ -1,0 +1,27 @@
+{
+  "id": "decisions/adr-template",
+  "title": "ADR Template",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/06-decisions/adr-template.md",
+  "sourceDirName": "06-decisions",
+  "slug": "/decisions/adr-template",
+  "permalink": "/docs/decisions/adr-template",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/06-decisions/adr-template.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "ADR-002: B2B Layout Override Approach",
+    "permalink": "/docs/decisions/adr-002-b2b-layout-override"
+  },
+  "next": {
+    "title": "Quality",
+    "permalink": "/docs/quality/"
+  }
+}

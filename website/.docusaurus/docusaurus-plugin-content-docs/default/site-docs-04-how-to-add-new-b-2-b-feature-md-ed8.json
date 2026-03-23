@@ -1,0 +1,27 @@
+{
+  "id": "how-to/add-new-b2b-feature",
+  "title": "Add a New B2B Feature",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/04-how-to/add-new-b2b-feature.md",
+  "sourceDirName": "04-how-to",
+  "slug": "/how-to/add-new-b2b-feature",
+  "permalink": "/docs/how-to/add-new-b2b-feature",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/04-how-to/add-new-b2b-feature.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 5,
+  "frontMatter": {
+    "sidebar_position": 5
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Publish the Theme",
+    "permalink": "/docs/how-to/publish-theme"
+  },
+  "next": {
+    "title": "Upgrade the Base Template",
+    "permalink": "/docs/how-to/upgrade-base-template"
+  }
+}

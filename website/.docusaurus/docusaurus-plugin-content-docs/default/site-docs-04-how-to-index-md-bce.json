@@ -1,0 +1,27 @@
+{
+  "id": "how-to/index",
+  "title": "How-To Guides",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/04-how-to/index.md",
+  "sourceDirName": "04-how-to",
+  "slug": "/how-to/",
+  "permalink": "/docs/how-to/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/04-how-to/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Helpers Reference",
+    "permalink": "/docs/reference/helpers"
+  },
+  "next": {
+    "title": "Add a New Section",
+    "permalink": "/docs/how-to/add-new-section"
+  }
+}

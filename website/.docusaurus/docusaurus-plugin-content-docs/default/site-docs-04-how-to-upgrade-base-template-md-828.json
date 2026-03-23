@@ -1,0 +1,27 @@
+{
+  "id": "how-to/upgrade-base-template",
+  "title": "Upgrade the Base Template",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/04-how-to/upgrade-base-template.md",
+  "sourceDirName": "04-how-to",
+  "slug": "/how-to/upgrade-base-template",
+  "permalink": "/docs/how-to/upgrade-base-template",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/04-how-to/upgrade-base-template.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "sidebar_position": 6
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Add a New B2B Feature",
+    "permalink": "/docs/how-to/add-new-b2b-feature"
+  },
+  "next": {
+    "title": "Operations",
+    "permalink": "/docs/operations/"
+  }
+}

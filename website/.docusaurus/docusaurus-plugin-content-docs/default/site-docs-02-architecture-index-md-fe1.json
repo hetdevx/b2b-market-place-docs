@@ -1,0 +1,27 @@
+{
+  "id": "architecture/index",
+  "title": "Architecture",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/02-architecture/index.md",
+  "sourceDirName": "02-architecture",
+  "slug": "/architecture/",
+  "permalink": "/docs/architecture/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/02-architecture/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Local Development",
+    "permalink": "/docs/getting-started/local-development"
+  },
+  "next": {
+    "title": "Data Flow",
+    "permalink": "/docs/architecture/data-flow"
+  }
+}

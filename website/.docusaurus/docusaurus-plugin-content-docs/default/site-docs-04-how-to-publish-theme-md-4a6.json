@@ -1,0 +1,27 @@
+{
+  "id": "how-to/publish-theme",
+  "title": "Publish the Theme",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/04-how-to/publish-theme.md",
+  "sourceDirName": "04-how-to",
+  "slug": "/how-to/publish-theme",
+  "permalink": "/docs/how-to/publish-theme",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/04-how-to/publish-theme.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Customize Global Config",
+    "permalink": "/docs/how-to/customize-global-config"
+  },
+  "next": {
+    "title": "Add a New B2B Feature",
+    "permalink": "/docs/how-to/add-new-b2b-feature"
+  }
+}

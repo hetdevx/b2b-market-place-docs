@@ -1,0 +1,15 @@
+{
+  "id": "README",
+  "title": "Turbo B2B Theme — Documentation",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/README.md",
+  "sourceDirName": ".",
+  "slug": "/",
+  "permalink": "/docs/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/README.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

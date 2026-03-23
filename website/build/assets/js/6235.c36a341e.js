@@ -1,0 +1,1 @@
+"use strict";(globalThis.webpackChunkturbo_b2b_docs=globalThis.webpackChunkturbo_b2b_docs||[]).push([[6235],{6235(b,s,c){c.d(s,{createInfoServices:()=>e.v});var e=c(1009);c(6902)}}]);

@@ -1,0 +1,24 @@
+{
+  "id": "decisions/adr-001-docs-strategy",
+  "title": "ADR-001: Documentation Strategy for Turbo B2B",
+  "description": "Date: 2026-03-14",
+  "source": "@site/../docs/06-decisions/adr-001-docs-strategy.md",
+  "sourceDirName": "06-decisions",
+  "slug": "/decisions/adr-001-docs-strategy",
+  "permalink": "/docs/decisions/adr-001-docs-strategy",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/06-decisions/adr-001-docs-strategy.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {},
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Architecture Decision Records",
+    "permalink": "/docs/decisions/"
+  },
+  "next": {
+    "title": "ADR-002: B2B Layout Override Approach",
+    "permalink": "/docs/decisions/adr-002-b2b-layout-override"
+  }
+}

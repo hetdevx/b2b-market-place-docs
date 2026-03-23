@@ -1,0 +1,27 @@
+{
+  "id": "getting-started/index",
+  "title": "Getting Started",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/01-getting-started/index.md",
+  "sourceDirName": "01-getting-started",
+  "slug": "/getting-started/",
+  "permalink": "/docs/getting-started/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/01-getting-started/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Overview",
+    "permalink": "/docs/overview/"
+  },
+  "next": {
+    "title": "Prerequisites",
+    "permalink": "/docs/getting-started/prerequisites"
+  }
+}

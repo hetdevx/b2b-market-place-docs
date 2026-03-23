@@ -1,0 +1,27 @@
+{
+  "id": "reference/helpers",
+  "title": "Helpers Reference",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/03-reference/helpers.md",
+  "sourceDirName": "03-reference",
+  "slug": "/reference/helpers",
+  "permalink": "/docs/reference/helpers",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/03-reference/helpers.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 6,
+  "frontMatter": {
+    "sidebar_position": 6
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "B2B Layouts Reference",
+    "permalink": "/docs/reference/b2b-layouts"
+  },
+  "next": {
+    "title": "How-To Guides",
+    "permalink": "/docs/how-to/"
+  }
+}

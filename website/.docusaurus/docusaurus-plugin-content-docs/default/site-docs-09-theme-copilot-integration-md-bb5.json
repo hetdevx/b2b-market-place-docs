@@ -1,0 +1,27 @@
+{
+  "id": "theme/copilot-integration",
+  "title": "Copilot.live Integration",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/09-theme/copilot-integration.md",
+  "sourceDirName": "09-theme",
+  "slug": "/theme/copilot-integration",
+  "permalink": "/docs/theme/copilot-integration",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/09-theme/copilot-integration.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Global Config Reference",
+    "permalink": "/docs/theme/global-config"
+  },
+  "next": {
+    "title": "Webpack Configuration",
+    "permalink": "/docs/theme/webpack"
+  }
+}

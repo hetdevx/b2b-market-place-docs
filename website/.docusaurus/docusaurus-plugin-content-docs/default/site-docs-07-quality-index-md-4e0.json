@@ -1,0 +1,27 @@
+{
+  "id": "quality/index",
+  "title": "Quality",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/07-quality/index.md",
+  "sourceDirName": "07-quality",
+  "slug": "/quality/",
+  "permalink": "/docs/quality/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/07-quality/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "ADR Template",
+    "permalink": "/docs/decisions/adr-template"
+  },
+  "next": {
+    "title": "Contributing",
+    "permalink": "/docs/contributing/"
+  }
+}

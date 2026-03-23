@@ -1,0 +1,27 @@
+{
+  "id": "theme/index",
+  "title": "Theme",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/09-theme/index.md",
+  "sourceDirName": "09-theme",
+  "slug": "/theme/",
+  "permalink": "/docs/theme/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/09-theme/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Contributing",
+    "permalink": "/docs/contributing/"
+  },
+  "next": {
+    "title": "Global Config Reference",
+    "permalink": "/docs/theme/global-config"
+  }
+}

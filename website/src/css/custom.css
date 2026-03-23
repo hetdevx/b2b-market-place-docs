@@ -1,0 +1,27 @@
+/**
+ * Turbo B2B Docs — custom CSS
+ * Uses Docusaurus default theme variables.
+ */
+
+:root {
+  --ifm-color-primary: #e63a3a;
+  --ifm-color-primary-dark: #cf3434;
+  --ifm-color-primary-darker: #c43131;
+  --ifm-color-primary-darkest: #a22828;
+  --ifm-color-primary-light: #e94e4e;
+  --ifm-color-primary-lighter: #eb5959;
+  --ifm-color-primary-lightest: #f07a7a;
+  --ifm-code-font-size: 95%;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme="dark"] {
+  --ifm-color-primary: #f07a7a;
+  --ifm-color-primary-dark: #eb5959;
+  --ifm-color-primary-darker: #e94e4e;
+  --ifm-color-primary-darkest: #e63a3a;
+  --ifm-color-primary-light: #f48e8e;
+  --ifm-color-primary-lighter: #f69999;
+  --ifm-color-primary-lightest: #fac0c0;
+  --docusaurus-highlighted-code-line-bg: rgba(0, 0, 0, 0.3);
+}

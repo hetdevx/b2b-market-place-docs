@@ -1,0 +1,204 @@
+{
+  "/__docusaurus/debug-5ff": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/config-5ba": {
+    "__comp": "__comp---theme-debug-config-23-a-2ff",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/content-a2b": {
+    "__comp": "__comp---theme-debug-contentba-8-ce7",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    },
+    "__props": "__props---docusaurus-debug-content-3-c-0-be2"
+  },
+  "/__docusaurus/debug/globalData-c3c": {
+    "__comp": "__comp---theme-debug-global-dataede-0fa",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/metadata-156": {
+    "__comp": "__comp---theme-debug-site-metadata-68-e-3d4",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/registry-88c": {
+    "__comp": "__comp---theme-debug-registry-679-501",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/__docusaurus/debug/routes-000": {
+    "__comp": "__comp---theme-debug-routes-946-699",
+    "__context": {
+      "plugin": "plugin---docusaurus-debugb-38-ad3"
+    }
+  },
+  "/docs/00-overview/-fe0": {
+    "__comp": "__comp---site-src-pages-docs-00-overview-index-tsx-746-dbc",
+    "__context": {
+      "plugin": "plugin---docs-00-overview-a-74-049"
+    },
+    "config": "config---docs-00-overview-5-e-9-d5c"
+  },
+  "/docs-ad4": {
+    "__comp": "__comp---theme-docs-root-5-e-9-0b6",
+    "__context": {
+      "plugin": "plugin---docsaba-d7c"
+    }
+  },
+  "/docs-015": {
+    "__comp": "__comp---theme-doc-version-roota-7-b-5de",
+    "__props": "__props---docs-005-788"
+  },
+  "/docs-253": {
+    "__comp": "__comp---theme-doc-roota-94-67a"
+  },
+  "/docs/-cbb": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-608-670"
+  },
+  "/docs/architecture/-b2f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-architecture-fe-1-81f"
+  },
+  "/docs/architecture/data-flow-3bd": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-architecture-data-flowd-2-f-e96"
+  },
+  "/docs/architecture/module-boundaries-82f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-architecture-module-boundariesdda-ea0"
+  },
+  "/docs/business-requirement/-be3": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-business-requirement-f-5-d-eba"
+  },
+  "/docs/business-requirement/b2b-features-e7c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-business-requirement-b-2-b-features-7-e-3-11b"
+  },
+  "/docs/contributing/-453": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-contributing-fa-8-a7b"
+  },
+  "/docs/decisions/-a1a": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-decisions-700-7f7"
+  },
+  "/docs/decisions/adr-001-docs-strategy-831": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-decisions-adr-001-docs-strategy-3-dc-76a"
+  },
+  "/docs/decisions/adr-002-b2b-layout-override-23f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-decisions-adr-002-b-2-b-layout-overrideb-13-325"
+  },
+  "/docs/decisions/adr-template-54e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-decisions-adr-templateabe-dc0"
+  },
+  "/docs/getting-started/-cd4": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-getting-started-f-65-446"
+  },
+  "/docs/getting-started/local-development-116": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-getting-started-local-development-25-d-d59"
+  },
+  "/docs/getting-started/prerequisites-d90": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-getting-started-prerequisitescb-3-01c"
+  },
+  "/docs/how-to/-deb": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-bce-628"
+  },
+  "/docs/how-to/add-new-b2b-feature-f69": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-add-new-b-2-b-featureed-8-5a1"
+  },
+  "/docs/how-to/add-new-section-57f": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-add-new-section-52-c-349"
+  },
+  "/docs/how-to/customize-global-config-787": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-customize-global-configc-87-e26"
+  },
+  "/docs/how-to/publish-theme-1bf": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-publish-theme-4-a-6-d4b"
+  },
+  "/docs/how-to/upgrade-base-template-054": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-how-to-upgrade-base-template-828-4d4"
+  },
+  "/docs/operations/-c40": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-operations-012-067"
+  },
+  "/docs/overview/-416": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-overview-c-8-b-09d"
+  },
+  "/docs/quality/-d0e": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-quality-4-e-0-668"
+  },
+  "/docs/reference/-af6": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-a-77-cb5"
+  },
+  "/docs/reference/b2b-layouts-a1c": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-b-2-b-layoutscd-3-92e"
+  },
+  "/docs/reference/components-01d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-componentsb-01-cda"
+  },
+  "/docs/reference/helpers-bbe": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-helpers-547-3bc"
+  },
+  "/docs/reference/pages-124": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-pages-664-bda"
+  },
+  "/docs/reference/sections-11d": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-reference-sections-203-31c"
+  },
+  "/docs/theme/-651": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-theme-298-d65"
+  },
+  "/docs/theme/copilot-integration-289": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-theme-copilot-integrationbb-5-803"
+  },
+  "/docs/theme/global-config-e72": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-theme-global-config-587-aaa"
+  },
+  "/docs/theme/webpack-023": {
+    "__comp": "__comp---theme-doc-item-178-a40",
+    "content": "content---docs-theme-webpack-2-f-8-7c4"
+  },
+  "/-e5f": {
+    "__comp": "__comp---site-src-pages-index-tsx-1-df-d3e",
+    "__context": {
+      "plugin": "plugin---docs-00-overview-a-74-049"
+    },
+    "config": "config---docs-00-overview-5-e-9-d5c"
+  }
+}

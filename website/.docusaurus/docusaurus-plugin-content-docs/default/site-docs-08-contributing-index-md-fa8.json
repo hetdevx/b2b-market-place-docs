@@ -1,0 +1,27 @@
+{
+  "id": "contributing/index",
+  "title": "Contributing",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/08-contributing/index.md",
+  "sourceDirName": "08-contributing",
+  "slug": "/contributing/",
+  "permalink": "/docs/contributing/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/08-contributing/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Quality",
+    "permalink": "/docs/quality/"
+  },
+  "next": {
+    "title": "Theme",
+    "permalink": "/docs/theme/"
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "how-to/customize-global-config",
+  "title": "Customize Global Config",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/04-how-to/customize-global-config.md",
+  "sourceDirName": "04-how-to",
+  "slug": "/how-to/customize-global-config",
+  "permalink": "/docs/how-to/customize-global-config",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/04-how-to/customize-global-config.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Add a New Section",
+    "permalink": "/docs/how-to/add-new-section"
+  },
+  "next": {
+    "title": "Publish the Theme",
+    "permalink": "/docs/how-to/publish-theme"
+  }
+}

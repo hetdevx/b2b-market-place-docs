@@ -1,0 +1,192 @@
+{
+  "docusaurus-plugin-content-docs": {
+    "default": {
+      "path": "/docs",
+      "versions": [
+        {
+          "name": "current",
+          "label": "Next",
+          "isLast": true,
+          "path": "/docs",
+          "mainDocId": "README",
+          "docs": [
+            {
+              "id": "architecture/data-flow",
+              "path": "/docs/architecture/data-flow",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "architecture/index",
+              "path": "/docs/architecture/",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "architecture/module-boundaries",
+              "path": "/docs/architecture/module-boundaries",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "business-requirement/b2b-features",
+              "path": "/docs/business-requirement/b2b-features",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "business-requirement/index",
+              "path": "/docs/business-requirement/",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "contributing/index",
+              "path": "/docs/contributing/",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "decisions/adr-001-docs-strategy",
+              "path": "/docs/decisions/adr-001-docs-strategy",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "decisions/adr-002-b2b-layout-override",
+              "path": "/docs/decisions/adr-002-b2b-layout-override",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "decisions/adr-template",
+              "path": "/docs/decisions/adr-template",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "decisions/index",
+              "path": "/docs/decisions/",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "getting-started/index",
+              "path": "/docs/getting-started/",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "getting-started/local-development",
+              "path": "/docs/getting-started/local-development",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "getting-started/prerequisites",
+              "path": "/docs/getting-started/prerequisites",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "how-to/add-new-b2b-feature",
+              "path": "/docs/how-to/add-new-b2b-feature",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "how-to/add-new-section",
+              "path": "/docs/how-to/add-new-section",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "how-to/customize-global-config",
+              "path": "/docs/how-to/customize-global-config",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "how-to/index",
+              "path": "/docs/how-to/",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "how-to/publish-theme",
+              "path": "/docs/how-to/publish-theme",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "how-to/upgrade-base-template",
+              "path": "/docs/how-to/upgrade-base-template",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "operations/index",
+              "path": "/docs/operations/",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "overview/index",
+              "path": "/docs/overview/",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "quality/index",
+              "path": "/docs/quality/",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "README",
+              "path": "/docs/"
+            },
+            {
+              "id": "reference/b2b-layouts",
+              "path": "/docs/reference/b2b-layouts",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "reference/components",
+              "path": "/docs/reference/components",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "reference/helpers",
+              "path": "/docs/reference/helpers",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "reference/index",
+              "path": "/docs/reference/",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "reference/pages",
+              "path": "/docs/reference/pages",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "reference/sections",
+              "path": "/docs/reference/sections",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "theme/copilot-integration",
+              "path": "/docs/theme/copilot-integration",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "theme/global-config",
+              "path": "/docs/theme/global-config",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "theme/index",
+              "path": "/docs/theme/",
+              "sidebar": "mainSidebar"
+            },
+            {
+              "id": "theme/webpack",
+              "path": "/docs/theme/webpack",
+              "sidebar": "mainSidebar"
+            }
+          ],
+          "draftIds": [],
+          "sidebars": {
+            "mainSidebar": {
+              "link": {
+                "path": "/docs/overview/",
+                "label": "Overview"
+              }
+            }
+          }
+        }
+      ],
+      "breadcrumbs": true
+    }
+  }
+}

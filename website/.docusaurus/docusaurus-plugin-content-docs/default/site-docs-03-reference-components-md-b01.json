@@ -1,0 +1,27 @@
+{
+  "id": "reference/components",
+  "title": "Components Reference",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/03-reference/components.md",
+  "sourceDirName": "03-reference",
+  "slug": "/reference/components",
+  "permalink": "/docs/reference/components",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/03-reference/components.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 4,
+  "frontMatter": {
+    "sidebar_position": 4
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Sections Reference",
+    "permalink": "/docs/reference/sections"
+  },
+  "next": {
+    "title": "B2B Layouts Reference",
+    "permalink": "/docs/reference/b2b-layouts"
+  }
+}

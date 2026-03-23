@@ -1,0 +1,27 @@
+{
+  "id": "how-to/add-new-section",
+  "title": "Add a New Section",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/04-how-to/add-new-section.md",
+  "sourceDirName": "04-how-to",
+  "slug": "/how-to/add-new-section",
+  "permalink": "/docs/how-to/add-new-section",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/04-how-to/add-new-section.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 2,
+  "frontMatter": {
+    "sidebar_position": 2
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "How-To Guides",
+    "permalink": "/docs/how-to/"
+  },
+  "next": {
+    "title": "Customize Global Config",
+    "permalink": "/docs/how-to/customize-global-config"
+  }
+}

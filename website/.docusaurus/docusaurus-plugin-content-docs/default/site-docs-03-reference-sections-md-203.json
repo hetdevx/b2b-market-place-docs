@@ -1,0 +1,27 @@
+{
+  "id": "reference/sections",
+  "title": "Sections Reference",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/03-reference/sections.md",
+  "sourceDirName": "03-reference",
+  "slug": "/reference/sections",
+  "permalink": "/docs/reference/sections",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/03-reference/sections.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 3,
+  "frontMatter": {
+    "sidebar_position": 3
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Pages Reference",
+    "permalink": "/docs/reference/pages"
+  },
+  "next": {
+    "title": "Components Reference",
+    "permalink": "/docs/reference/components"
+  }
+}

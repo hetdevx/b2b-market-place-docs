@@ -1,0 +1,27 @@
+{
+  "id": "decisions/index",
+  "title": "Architecture Decision Records",
+  "description": "Owner: Frontend Platform Team",
+  "source": "@site/../docs/06-decisions/index.md",
+  "sourceDirName": "06-decisions",
+  "slug": "/decisions/",
+  "permalink": "/docs/decisions/",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/06-decisions/index.md",
+  "tags": [],
+  "version": "current",
+  "sidebarPosition": 1,
+  "frontMatter": {
+    "sidebar_position": 1
+  },
+  "sidebar": "mainSidebar",
+  "previous": {
+    "title": "Operations",
+    "permalink": "/docs/operations/"
+  },
+  "next": {
+    "title": "ADR-001: Documentation Strategy for Turbo B2B",
+    "permalink": "/docs/decisions/adr-001-docs-strategy"
+  }
+}
