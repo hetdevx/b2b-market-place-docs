@@ -106,6 +106,10 @@
               "sidebar": "mainSidebar"
             },
             {
+              "id": "loyalty-rewards-technical-doc",
+              "path": "/docs/loyalty-rewards-technical-doc"
+            },
+            {
               "id": "operations/index",
               "path": "/docs/operations/",
               "sidebar": "mainSidebar"
@@ -114,6 +118,14 @@
               "id": "overview/index",
               "path": "/docs/overview/",
               "sidebar": "mainSidebar"
+            },
+            {
+              "id": "pdp-pricing-duplicate-calls-plan",
+              "path": "/docs/pdp-pricing-duplicate-calls-plan"
+            },
+            {
+              "id": "product-recommendation-reco-dedupe-plan",
+              "path": "/docs/product-recommendation-reco-dedupe-plan"
             },
             {
               "id": "quality/index",

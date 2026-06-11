@@ -6,8 +6,8 @@ sidebar_position: 1
 
 Owner: Frontend Platform Team
 Reviewers: Theme Team, QA
-Last Updated: 2026-03-14
-Last Reviewed: 2026-03-14
+Last Updated: 2026-06-11
+Last Reviewed: 2026-06-11
 Status: Approved
 
 ## Build
@@ -31,23 +31,43 @@ Output directories:
 
 The project includes `azure-pipelines.yml` for Azure DevOps CI.
 
-**What the pipeline actually does:** It is a **GitHub Sync** pipeline, not a build/lint/publish pipeline. When `master` is merged, it clones the public `gofynd/Turbo` GitHub repo, copies the source into it, and pushes to the `main` branch — syncing the internal ADO repo to the public GitHub mirror.
+**What the pipeline actually does:** It is a **GitHub Sync** pipeline, not a build/lint/publish pipeline. On merge to `master`, it (in a `node:18-buster` container):
+
+1. Authenticates as a GitHub App (JWT signed with the `ado-gh-sync.pem` secure file, exchanged for an installation token).
+2. Clones the public `gofynd/Turbo` GitHub repo, replaces its contents with this repo's source (using `.gitignore.ci` as the mirror's `.gitignore`), and pushes to `main`.
+3. Pushes a tag named after the source branch and creates a GitHub release `Release_<branch>` on `gofynd/Turbo`.
 
 ```yaml
 # Trigger: on merge to master
-# Action: sync source into gofynd/Turbo GitHub repo (main branch)
-# Variables required: GITHUB_USERNAME, GITHUB_PERSONAL_TOKEN (from 'pipeline' variable group)
+# Action: sync source into gofynd/Turbo GitHub repo (main branch) + tag + release
+# Variables required: GITHUB_APP_ID, GITHUB_APP_INSTALLATION_ID (from 'ado-gh-sync-vg' variable group)
+# Secure file: ado-gh-sync.pem (GitHub App private key)
 ```
 
-**There is no automated lint, build, or publish step in CI.** These are run manually by the developer before publishing:
+**There is no automated lint, build, or publish step in CI.** Run these manually before publishing:
 
 ```bash
 npm run lint
 npm run build
-npm run publish:theme
 ```
 
+Note: `package.json` defines `publish:theme` (and `dev`, `serve`, `upload-sections`), but the `scripts/` directory they reference (`scripts/publish.js`, `scripts/server.js`, `scripts/extract-section-props.js`) is **not present in this repo**, so those npm scripts fail. Local serve and publish go through the FDK CLI instead (`fdk theme serve`, `fdk theme sync`).
+
 **Known gap:** A proper CI pipeline with lint + build validation does not exist. Consider adding an Azure DevOps pipeline stage or GitHub Actions workflow that runs `npm run lint && npm run build` on every PR.
+
+## Theme sync helper (`sync.sh`)
+
+`sync.sh` switches the active FDK context and syncs the theme to an environment:
+
+```bash
+sh sync.sh -c <context-name|domain|full-url>
+```
+
+It looks up the context in `.fdk/context.json` (requires `jq`), updates `theme.active_context`, prints the context summary (domain, application/company/theme IDs, env), then prompts before running `fdk theme sync`.
+
+## Docs deployment
+
+`vercel.json` configures a Vercel build for a docs website (`npm ci --prefix website`, `npm --prefix website run build`, output `website/build`). The `website/` directory is not present in the repo yet, so this config is inert until the docs site is scaffolded. Note: `docs/` and `vercel.json` are listed in `.gitignore`, so they are local-only.
 
 ## Rollback procedure
 
@@ -65,7 +85,7 @@ git revert HEAD
 git push origin main
 ```
 
-Then re-run the publish pipeline.
+Then rebuild and republish the theme via the FDK CLI (`fdk theme sync`).
 
 ## Incident response
 

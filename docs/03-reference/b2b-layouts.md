@@ -35,8 +35,11 @@ B2B layout overrides live under `theme/b2b-page-layouts/`. These components repl
 
 | Component | Purpose |
 |---|---|
+| `components/CartClearAndWishlistModals.jsx` | Combined clear-cart and move-to-wishlist modals |
 | `components/clearcart-modal/clear-cart-modal.jsx` | Confirm clear cart modal |
 | `components/gst-card/components/b2b-gst-wrapper.jsx` | GST number input on cart |
+| `components/gst-card/gst-details/fetch_gst_details.js` | GST detail lookup/verification fetcher |
+| `hooks/useCartClearAndWishlist.jsx` | Hook driving clear-cart / move-to-wishlist flows |
 
 ## Custom B2B page templates — `theme/custom-templates/b2b/`
 
@@ -51,12 +54,21 @@ These are full-page templates registered via `custom-templates/index.jsx`.
 | `quotes/quote-products.jsx` | Products in a quote |
 | `quotes/bulk-upload.jsx` | Bulk product upload to quote |
 | `quotes/quotation-table.jsx` | Quotation data table |
+| `quotes/quote-products-table.jsx` | Quote products table |
 | `quotes/quote-logs.jsx` | Negotiation log |
 | `quotes/quote-notes.jsx` | Quote notes |
+| `quotes/no-quotes.jsx` | Empty state for quotes |
+| `quotes/StatusLabel.jsx` | Quote status label |
+| `quotes/b2b-loader.jsx` | Quotes loading state |
+| `quotes/quotation.service.js` | Quote API service (template-scoped copy) |
 | `wishlist/index.jsx` | B2B wishlist root |
+| `wishlist/api/wishlistApi.js` | Wishlist API calls |
+| `wishlist/components/wishlist-root/` | Wishlist root view |
 | `wishlist/components/my-wishlist/` | My wishlists view |
 | `wishlist/components/wishlist-detail/` | Wishlist detail + price/address/GST |
 | `wishlist/components/shared-wishlist/` | Shared wishlist view |
+| `wishlist/components/shared-wishlist-detail/` | Shared wishlist detail view |
+| `wishlist/components/verify-wishlist/` | Wishlist verification view |
 | `wishlist/components/modals/` | All wishlist modals (create, delete, share, subscribe, save, offer) |
 | `distributed-dashboard/index.jsx` | Retailer / distributor dashboard root |
 | `distributed-dashboard/pages/overview/` | Dashboard overview tab |
@@ -65,6 +77,11 @@ These are full-page templates registered via `custom-templates/index.jsx`.
 | `distributed-dashboard/pages/retail-management/` | Retailer management tab |
 | `distributed-dashboard/pages/draft-orders/` | Draft orders tab |
 | `credit.jsx` | Credit / payment terms display |
+| `b2b-credit.jsx` | B2B credit page entry |
+| `b2b-credit/` | B2B credit components, shimmers, utils |
+| `loyalty-rewards.jsx` | Loyalty rewards page entry |
+| `loyalty-rewards/` | Loyalty dashboard, refer-and-earn, reward history, tiers modal |
+| `fdk-templates/` | B2B overrides of FDK profile templates (email, phone, profile details) |
 | `ladder-price.jsx` | Ladder pricing display |
 | `contracted-price.jsx` | Contracted price display |
 | `size-selector.jsx` | B2B size selector |
@@ -85,7 +102,18 @@ These are full-page templates registered via `custom-templates/index.jsx`.
 | `swr.js` | SWR fetcher factory |
 | `errors.js` | Error normalizer |
 | `modules/features-api/feature-api.js` | Feature flag fetching |
+| `modules/b2b-credit/` | Credit API + response mappers |
+| `modules/b2b-loyalty/` | Loyalty/rewards API, mappers, referral manager |
+| `modules/b2b-product-recommendation/recommendation.js` | Product recommendation API |
+| `modules/payment-option-config/` | Payment option config API |
 | `modules/retail-distribution/overview.js` | Dashboard overview API |
 | `modules/retail-distribution/order-history.js` | Order history API |
 | `modules/retail-distribution/retailers.js` | Retailer management API |
 | `modules/retail-distribution/dropdown-items.js` | Dropdown data API |
+
+## Other B2B modules — `theme/b2b/`
+
+| Module | Purpose |
+|---|---|
+| `b2b-constants.js` | Shared B2B constants |
+| `helper/currency-helper.js` | Locale-to-currency mapping helpers |

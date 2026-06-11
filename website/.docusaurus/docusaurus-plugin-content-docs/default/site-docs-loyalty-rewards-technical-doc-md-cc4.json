@@ -1,0 +1,15 @@
+{
+  "id": "loyalty-rewards-technical-doc",
+  "title": "Loyalty & Rewards — Integration Reference",
+  "description": "Scope: Loyalty Page · Refer & Earn on Signup",
+  "source": "@site/../docs/loyalty-rewards-technical-doc.md",
+  "sourceDirName": ".",
+  "slug": "/loyalty-rewards-technical-doc",
+  "permalink": "/docs/loyalty-rewards-technical-doc",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/loyalty-rewards-technical-doc.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

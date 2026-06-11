@@ -12,7 +12,7 @@ Status: Approved
 
 All page components live under `theme/pages/`. Each file maps to a route registered in the FDK theme config.
 
-## Full inventory (44 pages)
+## Full inventory (45 pages)
 
 | File | Route / Purpose |
 |---|---|
@@ -61,6 +61,12 @@ All page components live under `theme/pages/`. Each file maps to a route registe
 | `verify-email.jsx` | Email verification |
 | `verify-email-link.jsx` | Email verification link handler |
 | `wishlist.jsx` | Wishlist page |
+
+## Page layouts — `theme/page-layouts/` (31 directories)
+
+Most pages delegate their logic and presentational markup to a matching directory under `theme/page-layouts/`:
+
+`account-locked`, `address`, `auth`, `blog`, `brands`, `cart`, `categories`, `collection-listing`, `collections`, `compare`, `edit-profile`, `faq`, `forgot-password`, `hero-video`, `login`, `marketing`, `orders`, `pdp`, `plp`, `profile`, `profile-address`, `refund-management`, `register`, `section-render`, `set-password`, `shared-cart`, `single-checkout`, `site-map`, `store-locator`, `verify-email-link`, `wishlist`
 
 ## Notes
 

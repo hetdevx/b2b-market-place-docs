@@ -6,11 +6,11 @@ sidebar_position: 2
 
 Owner: Frontend Platform Team
 Reviewers: Theme Team, QA
-Last Updated: 2026-03-14
-Last Reviewed: 2026-03-14
+Last Updated: 2026-06-11
+Last Reviewed: 2026-06-11
 Status: Approved
 
-FDK sections are renderable page builder blocks. Each section is a React component registered with the theme.
+FDK sections are renderable page builder blocks. Each section is a React component exported as `Component` alongside a `settings` schema, and registered in `theme/sections/index.js`.
 
 ## Steps
 
@@ -20,9 +20,9 @@ Create `theme/sections/my-section.jsx`:
 
 ```jsx
 import React from "react";
-import styles from "./my-section.less";
+import styles from "../styles/sections/my-section.less";
 
-function MySection({ props, globalConfig }) {
+export function Component({ props, globalConfig, blocks }) {
   const { title } = props;
   return (
     <section className={styles.container}>
@@ -31,7 +31,7 @@ function MySection({ props, globalConfig }) {
   );
 }
 
-MySection.serverFetch = async ({ fpi }) => {
+Component.serverFetch = async ({ fpi }) => {
   // Optional: fetch server-side data
 };
 
@@ -48,12 +48,18 @@ export const settings = {
   blocks: [],
 };
 
-export default MySection;
+export default Component;
 ```
+
+Note the pattern used by existing sections (see `theme/sections/hero-image.jsx`):
+
+- The component is exported as a **named export `Component`** (and also as the default export).
+- `serverFetch` is attached to `Component`, not the file.
+- Existing themes use translation keys (`t:resource.…`) for `label`/`default` values; plain strings also work.
 
 ### 2. Create the Less file (if needed)
 
-Create `theme/sections/my-section.less`:
+Section styles live in `theme/styles/sections/`, not next to the component. Create `theme/styles/sections/my-section.less`:
 
 ```less
 .container {
@@ -63,20 +69,26 @@ Create `theme/sections/my-section.less`:
 
 ### 3. Register the section
 
-Webpack auto-discovers all `.jsx` files in `theme/sections/` via dynamic entry points — no manual registration is needed for the Webpack build.
+Sections are **manually registered** in `theme/sections/index.js`. Add three entries, following the existing pattern:
 
-For Fynd Platform registration, run:
+```jsx
+// 1. Loadable chunk import (top of file)
+const MySectionSectionChunk = loadable(() => import(/* webpackChunkName:"MySectionSectionChunk" */ './my-section.jsx'));
 
-```bash
-npm run upload-sections
+// 2. Case in the getbundle() switch
+case 'my-section':
+    return (props) => <MySectionSectionChunk {...props}/>;
+
+// 3. Entry in the default export map
+'my-section': { ...MySectionSectionChunk, Component: getbundle('my-section') },
 ```
 
-This runs `scripts/extract-section-props.js` to push section prop schemas to the platform.
+The section schema (`settings` export) is picked up by the FDK CLI when the theme is served/synced — no separate upload step is required.
 
 ### 4. Test locally
 
 ```bash
-npm run dev
+fdk theme serve
 ```
 
 Open the FDK preview in your browser and add the new section via the page builder.
@@ -84,5 +96,5 @@ Open the FDK preview in your browser and add the new section via the page builde
 ## Notes
 
 - Section props are defined in the exported `settings` object.
-- Use `serverFetch` for SSR data requirements.
-- Section chunking is enabled (`fdk_feature.enable_section_chunking: true`), so each section is lazily loaded as a separate chunk.
+- Use `Component.serverFetch` for SSR data requirements.
+- Section chunking is enabled (`fdk_feature.enable_section_chunking: true` in `package.json`), so each section is lazily loaded as a separate chunk — which is why each registration uses `loadable()` with a named `webpackChunkName`.

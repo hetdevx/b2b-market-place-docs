@@ -6,8 +6,8 @@ sidebar_position: 2
 
 Owner: Frontend Platform Team
 Reviewers: Theme Team, QA
-Last Updated: 2026-03-14
-Last Reviewed: 2026-03-14
+Last Updated: 2026-06-11
+Last Reviewed: 2026-06-11
 Status: Approved
 
 ## Required accounts
@@ -33,6 +33,7 @@ Create a partner account at [partners.fynd.com](https://partners.fynd.com/help/d
 | Tool | Purpose |
 |---|---|
 | Bun | Faster installs (`bun.lockb` present in repo) |
+| jq | Required by the `sync.sh` context-switch helper |
 | ESLint VSCode extension | Inline linting |
 | Prettier VSCode extension | Auto-format on save |
 

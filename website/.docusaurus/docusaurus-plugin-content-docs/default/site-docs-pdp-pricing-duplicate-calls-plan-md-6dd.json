@@ -1,0 +1,15 @@
+{
+  "id": "pdp-pricing-duplicate-calls-plan",
+  "title": "PDP Pricing: Duplicate Calls & Loader Fix — Plan",
+  "description": "Branch context: fix/pdp-loader (current), root cause introduced during b2b-v1.4.9yanikatd",
+  "source": "@site/../docs/pdp-pricing-duplicate-calls-plan.md",
+  "sourceDirName": ".",
+  "slug": "/pdp-pricing-duplicate-calls-plan",
+  "permalink": "/docs/pdp-pricing-duplicate-calls-plan",
+  "draft": false,
+  "unlisted": false,
+  "editUrl": "https://github.com/fynd-b2b/react-starter/edit/main/../docs/pdp-pricing-duplicate-calls-plan.md",
+  "tags": [],
+  "version": "current",
+  "frontMatter": {}
+}

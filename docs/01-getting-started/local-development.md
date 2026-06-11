@@ -6,8 +6,8 @@ sidebar_position: 3
 
 Owner: Frontend Platform Team
 Reviewers: Theme Team, QA
-Last Updated: 2026-03-14
-Last Reviewed: 2026-03-14
+Last Updated: 2026-06-11
+Last Reviewed: 2026-06-11
 Status: Approved
 
 ## Clone and install
@@ -33,26 +33,31 @@ npm install
 | `npm run lint` | Run ESLint on `.js` and `.jsx` files |
 | `npm run lint:fix` | Run ESLint with auto-fix |
 | `npm run format` | Run Prettier on `theme/**` |
-| `npm run analyze` | Build with bundle analyzer |
+| `npm run analyze` | Production build with `ANALYZE=true` (the `BundleAnalyzerPlugin` block is currently commented out in `webpack.config.js`) |
 | `npm run upload-sections` | Extract section props to platform |
+| `npm run refresh` | Reinstall `fdk-store` from the shadowfire `develop` branch |
+| `npm run husky` | Install Husky and add a pre-commit hook running `lint` + `format` |
+| `npm run test` | Stub — exits with an error (no test suite) |
+
+> **Warning:** `serve`, `dev`, `publish:theme`, `publish:local`, and `upload-sections` reference a `scripts/` directory (`scripts/server.js`, `scripts/publish.js`, `scripts/extract-section-props.js`) that is **not committed** to this repo, so they fail out of the box. Use `fdk theme serve` for local development.
 
 ## Starting local development
-
-```bash
-npm run dev
-```
-
-This runs `build:dev` and `serve` concurrently. The dev server is powered by `scripts/server.js` via nodemon.
-
-> **Note:** `fdk theme serve` requires a `.fdk` folder configured via `fdk theme init`. Use `npm run dev` for local Webpack-only builds.
-
-## FDK theme serve (platform-linked)
 
 ```bash
 fdk theme serve
 ```
 
 Requires `.fdk` config (run `fdk theme init` once). This links the local build to a Fynd sales channel for live preview.
+
+> **Note:** `npm run dev` (concurrent `build:dev` + `serve`) expects `scripts/server.js`, which is not committed to the repo, so `fdk theme serve` is the supported local dev flow. `npm run build:dev` alone still works for a watch-mode Webpack build.
+
+## Switching FDK contexts
+
+`sync.sh` switches the active context in `.fdk/context.json` (by context name, domain, or full URL) and optionally runs `fdk theme sync`. Requires `jq`.
+
+```bash
+sh sync.sh -c <context-name|domain|url>
+```
 
 ## Initializing a new theme from this template
 
@@ -64,7 +69,7 @@ Select account type, account, and sales channel when prompted. The theme is clon
 
 ## Environment variables
 
-No `.env` file is required for local development. The Webpack config uses `dotenv-webpack` for optional env injection.
+No `.env` file is required for local development. The Webpack config loads `dotenv-webpack` only for local builds (`webpack --env local`) for optional env injection.
 
 ## Output directories
 

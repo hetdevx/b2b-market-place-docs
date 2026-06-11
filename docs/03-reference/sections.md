@@ -12,7 +12,7 @@ Status: Approved
 
 All FDK section components live under `theme/sections/`. Sections are renderable blocks registered with the Fynd Platform page builder.
 
-## Full inventory (55 sections)
+## Full inventory (58 sections)
 
 | File | Purpose |
 |---|---|
@@ -28,7 +28,6 @@ All FDK section components live under `theme/sections/`. Sections are renderable
 | `categories-listing.jsx` | Category listing |
 | `checkout.jsx` | Checkout section |
 | `collection-listing.jsx` | Collection product grid |
-| `collection-listing.jsx` | Collections listing |
 | `collections.jsx` | Collections grid |
 | `collections-listing.jsx` | All collections list |
 | `contact-us.jsx` | Contact us form |
@@ -78,6 +77,7 @@ All FDK section components live under `theme/sections/`. Sections are renderable
 
 ## Notes
 
+- Each section file exports a `settings` object defining the props/blocks configurable in the platform page builder; `index.js` aggregates and registers all sections.
 - `product-description.jsx` and `product-listing.jsx` are the most complex sections — they integrate B2B layout overrides.
 - `store-locator.jsx` uses `@react-google-maps/api` and requires a Google Maps API key.
 - `shared-cart-items.jsx` and `shared-cart-breakup.jsx` are used on the shared cart page flow.

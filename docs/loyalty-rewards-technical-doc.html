@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<style>
+  body { font-family: Arial, sans-serif; font-size: 11pt; line-height: 1.6; color: #202124; max-width: 860px; margin: 40px auto; padding: 0 24px; }
+  h1 { font-size: 20pt; font-weight: 700; margin-bottom: 4px; }
+  h2 { font-size: 14pt; font-weight: 700; margin-top: 36px; margin-bottom: 8px; border-bottom: 1px solid #dadce0; padding-bottom: 4px; }
+  h3 { font-size: 12pt; font-weight: 700; margin-top: 24px; margin-bottom: 6px; }
+  h4 { font-size: 11pt; font-weight: 700; margin-top: 16px; margin-bottom: 4px; }
+  p { margin: 6px 0 10px; }
+  a { color: #1a73e8; }
+  code { background: #f1f3f4; padding: 1px 5px; border-radius: 3px; font-family: 'Courier New', monospace; font-size: 9.5pt; }
+  pre { background: #f1f3f4; border: 1px solid #dadce0; border-radius: 4px; padding: 12px 16px; font-family: 'Courier New', monospace; font-size: 9pt; white-space: pre; overflow-x: auto; margin: 8px 0 16px; line-height: 1.5; }
+  table { border-collapse: collapse; width: 100%; margin: 10px 0 18px; font-size: 10.5pt; }
+  th { background: #f1f3f4; font-weight: 700; text-align: left; padding: 8px 12px; border: 1px solid #dadce0; }
+  td { padding: 7px 12px; border: 1px solid #dadce0; vertical-align: top; }
+  tr:nth-child(even) td { background: #fafafa; }
+  ul { margin: 6px 0 10px; padding-left: 22px; }
+  li { margin-bottom: 3px; }
+  .meta { font-size: 10pt; color: #5f6368; margin-bottom: 20px; }
+  hr { border: none; border-top: 1px solid #dadce0; margin: 28px 0; }
+  .label { font-weight: 700; }
+  .note { background: #e8f0fe; border-left: 3px solid #1a73e8; padding: 8px 12px; border-radius: 0 4px 4px 0; margin: 10px 0 16px; font-size: 10.5pt; }
+</style>
+</head>
+<body>
+
+<h1>Loyalty &amp; Rewards — Integration Reference</h1>
+<p class="meta">
+  <span class="label">Scope:</span> Loyalty Page &nbsp;·&nbsp; Refer &amp; Earn on Signup &nbsp;&nbsp;|&nbsp;&nbsp;
+  <span class="label">Branch:</span> <code>feat/loyalty</code> — react-starter, Azure DevOps
+</p>
+
+<hr>
+
+<h2>PRs to Review</h2>
+<table>
+  <tr><th>Repo</th><th>PR</th><th>What changed</th></tr>
+  <tr><td>react-starter</td><td><a href="https://dev.azure.com/GoFynd/PlatformThemes/_git/react-starter/pullrequest/261672">PR #261672</a></td><td>Loyalty page, dashboard, reward history, refer &amp; earn UI</td></tr>
+  <tr><td>react-starter</td><td><a href="https://dev.azure.com/GoFynd/PlatformThemes/_git/react-starter/pullrequest/264965">PR #264965</a></td><td>API module, GraphQL queries, mapper, referral manager</td></tr>
+  <tr><td>react-starter</td><td><a href="https://dev.azure.com/GoFynd/PlatformThemes/_git/react-starter/pullrequest/265215">PR #265215</a></td><td>Signup integration — referral capture + apply after OTP</td></tr>
+  <tr><td>react-starter</td><td><a href="https://dev.azure.com/GoFynd/PlatformThemes/_git/react-starter/pullrequest/265726">PR #265726</a></td><td>Tiers modal, expiring banner, fallback tier logic</td></tr>
+  <tr><td>react-starter</td><td><a href="https://dev.azure.com/GoFynd/PlatformThemes/_git/react-starter/pullrequest/267467">PR #267467</a></td><td>Bug fixes, edge case handling</td></tr>
+  <tr><td>firestone</td><td><a href="https://dev.azure.com/GoFynd/CommonLibraries/_git/firestone/pullrequest/264963">PR #264963</a></td><td><code>ShareSheet</code> and shared UI components used by loyalty page</td></tr>
+</table>
+
+<hr>
+
+<h2>Codebase Map — Where to Go for What</h2>
+<p>Before diving in, here is a map of every folder and file involved. Use this to know exactly where to look or what to copy.</p>
+
+<h3>Base URL</h3>
+<p><span class="label">File:</span> <code>constant.js</code> (root of the project)</p>
+<pre>// constant.js
+export const B2B_LOYALTY_BASE_URL =
+  `${BASE_URL}/ext/fynd-engage/application/engage/graphql`;</pre>
+<p><code>BASE_URL</code> is <code>window.location.origin</code> at runtime — resolves to your store's domain automatically. This is the <strong>single URL used for all Engage GraphQL calls</strong>. Every API function in the loyalty module imports it from here.</p>
+
+<h3>theme/b2b/api/modules/b2b-loyalty/ — The API Layer</h3>
+<p>This is the root folder for everything API-related. Go here to understand or change how the feature talks to the backend.</p>
+<table>
+  <tr><th>File</th><th>What it does</th></tr>
+  <tr><td><code>b2b-loyalty.js</code></td><td><strong>Entry point for all API calls.</strong> Contains the <code>loyaltyGraphQL</code> fetch wrapper and exports one function per operation (<code>fetchLoyaltyDashboard</code>, <code>fetchLoyaltyPointsHistory</code>, <code>applyLoyaltyReferralCode</code>, etc.). This is what the UI imports and calls.</td></tr>
+  <tr><td><code>mapper.js</code></td><td>Transforms raw GraphQL responses into the shape the UI components expect. Never called directly — <code>b2b-loyalty.js</code> calls it internally before returning data.</td></tr>
+  <tr><td><code>referralManager.js</code></td><td>All localStorage logic for referral codes — store, read, validate, delete, and apply after signup. Nothing here talks to the UI directly.</td></tr>
+  <tr><td><code>index.js</code></td><td>Barrel export — re-exports everything from the three files above so the rest of the codebase imports from one place.</td></tr>
+</table>
+
+<h3>theme/queries/loyaltyQuery.js — The GraphQL Strings</h3>
+<p>All query and mutation strings for the Engage API live here as plain JS string exports. No fetch logic, no mapping. If you need to add a field to a query, this is the only file to change.</p>
+<table>
+  <tr><th>Export</th><th>Used by</th></tr>
+  <tr><td><code>LOYALTY_USER</code></td><td><code>fetchLoyaltyDashboard()</code></td></tr>
+  <tr><td><code>LOYALTY_POINTS_HISTORY</code></td><td><code>fetchLoyaltyPointsHistory()</code></td></tr>
+  <tr><td><code>LOYALTY_REWARD_DETAILS</code></td><td><code>fetchLoyaltyRewardDetails()</code></td></tr>
+  <tr><td><code>LOYALTY_REFERRALS</code></td><td><code>fetchLoyaltyReferrals()</code></td></tr>
+  <tr><td><code>APPLY_LOYALTY_REFERRAL_CODE</code></td><td><code>applyLoyaltyReferralCode()</code></td></tr>
+</table>
+
+<h3>theme/custom-templates/b2b/loyalty-rewards.jsx — The Loyalty Page Root</h3>
+<p>This is the <strong>root component for the entire Loyalty page</strong>. It:</p>
+<ul>
+  <li>Owns all page state via <code>useReducer</code></li>
+  <li>Calls <code>fetchLoyaltyDashboard</code>, <code>fetchLoyaltyPointsHistory</code>, and <code>fetchLoyaltyRewardDetails</code> on load</li>
+  <li>Passes data down to every sub-component</li>
+</ul>
+<p>All sub-components live in the <code>loyalty-rewards/</code> folder next to it:</p>
+<table>
+  <tr><th>Sub-component folder</th><th>What it renders</th></tr>
+  <tr><td><code>loyalty-rewards/dashboard/</code></td><td>Points cards, tier info, progress bar</td></tr>
+  <tr><td><code>loyalty-rewards/reward-history/</code></td><td>Transaction history table (desktop paged / mobile infinite scroll)</td></tr>
+  <tr><td><code>loyalty-rewards/refer-earn/</code></td><td>Referral link + share buttons (WhatsApp, Email, SMS, Copy)</td></tr>
+  <tr><td><code>loyalty-rewards/tiers-modal/</code></td><td>Full tier list modal with earn/redeem rules</td></tr>
+  <tr><td><code>loyalty-rewards/expiring-banner/</code></td><td>Banner shown when points are about to expire</td></tr>
+</table>
+
+<h3>Signup Integration — Two files touched</h3>
+<p>These are <strong>not</strong> new files — they are existing files with a small addition for the referral flow:</p>
+<table>
+  <tr><th>File</th><th>What was added</th></tr>
+  <tr><td><code>theme/providers/global-provider.jsx</code></td><td>Reads <code>?referralCode=</code> from the URL on any page load and saves it to localStorage</td></tr>
+  <tr><td><code>theme/page-layouts/register/useRegister.jsx</code></td><td>Passes <code>applyReferralIfExists</code> as the OTP success callback; pre-fills the referral code field</td></tr>
+</table>
+
+<hr>
+
+<h2>API Endpoint</h2>
+<pre>POST https://odrr.in/ext/fynd-engage/application/engage/graphql
+Content-Type: application/json</pre>
+<p><strong>Auth:</strong> No API key. Uses session cookie — the user must be logged in.</p>
+
+<h3>Postman Setup</h3>
+<ol>
+  <li>New <strong>POST</strong> request → paste the URL above</li>
+  <li>Headers → <code>Content-Type: application/json</code></li>
+  <li>Body → <strong>raw → JSON</strong> → format: <code>{ "query": "...", "variables": {} }</code></li>
+  <li>Cookie: copy the session cookie from a logged-in browser (DevTools → Application → Cookies) and add it as a <code>Cookie</code> header</li>
+</ol>
+<div class="note">Switch body type to <strong>GraphQL</strong> in Postman for auto-formatting and inline variable editing.</div>
+
+<hr>
+
+<h2>What Each Query / Mutation Does</h2>
+
+<h3>LoyaltyUser</h3>
+<h4>What it does</h4>
+<p>Fetches everything needed to render the Loyalty Dashboard in one call:</p>
+<ul>
+  <li>Who the user is (name, blocked status, their referral code)</li>
+  <li>Their current tier (title, icon, progress towards next tier, downgrade risk)</li>
+  <li>Their wallet (available points, earned, redeemed, expiring points)</li>
+</ul>
+<p><span class="label">File (query string):</span> <code>theme/queries/loyaltyQuery.js</code></p>
+<p><span class="label">File (API function):</span> <code>theme/b2b/api/modules/b2b-loyalty/b2b-loyalty.js</code></p>
+<pre>export async function fetchLoyaltyDashboard() {
+  const json = await loyaltyGraphQL(LOYALTY_USER);
+  return mapLoyaltyDashboard(json.data);
+}</pre>
+<p><span class="label">Called from:</span> <code>theme/custom-templates/b2b/loyalty-rewards.jsx</code> — runs once on page mount</p>
+<pre>const dashboardData = await fetchLoyaltyDashboard();
+dispatch({ type: "DASHBOARD_LOADED", payload: dashboardData });</pre>
+<h4>What renders with this data</h4>
+<ul>
+  <li>Points cards (available / earned / redeemed)</li>
+  <li>Current tier name + icon</li>
+  <li>Progress bar towards next tier</li>
+  <li>Expiring points banner (uses <code>expiringPoints</code>)</li>
+  <li>Referral code on the Refer &amp; Earn tab (uses <code>referralCode</code>)</li>
+</ul>
+<h4>GraphQL</h4>
+<pre>query LoyaltyUser {
+  loyaltyUser {
+    name
+    userIdentifier
+    hasConsent
+    isBlocked
+    referralCode
+    createdAt
+  }
+  loyaltyUserTier {
+    id
+    title
+    icon
+    thresholdValue
+    thresholdValueType
+    pointsToUpgrade
+    orderValueToUpgrade
+    entryDate
+    nextTier {
+      id
+      title
+      icon
+      thresholdValue
+      thresholdValueType
+    }
+    downgradeData {
+      daysLeftForDowngrade
+      downgradeDate
+      minimumSpendRequired
+      amountSpentForDowngrade
+    }
+  }
+  loyaltyWallet {
+    loyaltyName
+    points
+    pendingPoints
+    earnedPoints
+    redeemedPoints
+    unit
+    conversionRate
+    expiringPoints {
+      total
+      expiresBy
+    }
+  }
+}</pre>
+
+<hr>
+
+<h3>LoyaltyPointsHistory</h3>
+<h4>What it does</h4>
+<p>Fetches a paginated list of point transactions — every time the user earned or redeemed points (orders, referrals, manual credits, etc.).</p>
+<p><span class="label">File (query string):</span> <code>theme/queries/loyaltyQuery.js</code></p>
+<p><span class="label">File (API function):</span> <code>theme/b2b/api/modules/b2b-loyalty/b2b-loyalty.js</code></p>
+<pre>export async function fetchLoyaltyPointsHistory({ limit, next } = {}) {
+  const json = await loyaltyGraphQL(LOYALTY_POINTS_HISTORY, { limit, next });
+  return mapLoyaltyPointsHistory(json.data);
+}</pre>
+<p><span class="label">Called from:</span> <code>theme/custom-templates/b2b/loyalty-rewards.jsx</code> — called every time the user navigates to a new page or taps "Load More"</p>
+<pre>const { items, page } = await fetchLoyaltyPointsHistory({
+  limit: 3,      // items per page
+  next: cursor,  // cursor from previous page's page.next — null for first page
+});</pre>
+<h4>Pagination pattern</h4>
+<ul>
+  <li>Pass <code>page.next</code> from the response as <code>next</code> in the next call</li>
+  <li><code>page.hasNext</code> tells you if there are more pages</li>
+  <li>First call: pass <code>next: null</code> or omit it</li>
+</ul>
+<p><span class="label">What renders:</span> Reward history table — transaction name, points change, date, linked order ID.</p>
+<h4>GraphQL</h4>
+<pre>query LoyaltyPointsHistory($limit: Int, $next: String) {
+  loyaltyPointsHistory(limit: $limit, next: $next) {
+    items {
+      id
+      points
+      remainingPoints
+      activityName
+      activitySlug
+      status
+      orderId
+      orderAmount
+      createdAt
+      text
+      subText1
+      subText2
+      meta {
+        orderId
+        orderAmount
+      }
+    }
+    page {
+      hasNext
+      hasPrevious
+      next
+      limit
+    }
+  }
+}</pre>
+
+<hr>
+
+<h3>LoyaltyRewardDetails</h3>
+<h4>What it does</h4>
+<p>Fetches the full tier list and the rules for how points are earned and redeemed. Used only when the user opens the "View Tiers" modal.</p>
+<p><span class="label">File (query string):</span> <code>theme/queries/loyaltyQuery.js</code></p>
+<p><span class="label">File (API function):</span> <code>theme/b2b/api/modules/b2b-loyalty/b2b-loyalty.js</code></p>
+<pre>export async function fetchLoyaltyRewardDetails(dashboard = null) {
+  const json = await loyaltyGraphQL(LOYALTY_REWARD_DETAILS);
+  return mapLoyaltyRewardDetails(json.data, dashboard);
+}</pre>
+<p><span class="label">Called from:</span> <code>theme/custom-templates/b2b/loyalty-rewards.jsx</code> — called right after <code>fetchLoyaltyDashboard</code> on page mount</p>
+<pre>const details = await fetchLoyaltyRewardDetails(dashboardData);
+dispatch({ type: "REWARD_DETAILS_LOADED", payload: details });</pre>
+<p><span class="label">What renders:</span> The Tiers Modal — all tiers with their icons, thresholds, earn rules, and redeem rules.</p>
+
+<hr>
+
+<h3>ApplyLoyaltyReferralCode (mutation)</h3>
+<h4>What it does</h4>
+<p>Submits a referral code on behalf of the newly signed-up user. Awards points to both the referrer (person who shared the link) and the referred user (new signup). One-time call — the code is removed from storage after a successful response.</p>
+<p><span class="label">File (query string):</span> <code>theme/queries/loyaltyQuery.js</code></p>
+<p><span class="label">File (API function):</span> <code>theme/b2b/api/modules/b2b-loyalty/b2b-loyalty.js</code></p>
+<pre>export async function applyLoyaltyReferralCode(referralCode) {
+  // keepalive: true — request survives the page redirect after OTP
+  const json = await loyaltyGraphQL(
+    APPLY_LOYALTY_REFERRAL_CODE,
+    { referralCode },
+    { keepalive: true }
+  );
+  return mapApplyReferralCode(json.data);
+}</pre>
+<h4>When it is invoked</h4>
+<p>Immediately after the user successfully verifies their OTP on signup. <strong>Not called on login</strong> — only on new account creation.</p>
+<p><span class="label">Called from:</span> <code>theme/page-layouts/register/useRegister.jsx</code></p>
+<pre>// applyReferralIfExists is passed as the success callback to OTP verification
+const verifyDetailsProp = useVerifyDetails({
+  fpi,
+  verifyBothData,
+  onVerifySuccess: applyReferralIfExists,  // fires once OTP is confirmed
+});</pre>
+<p><code>applyReferralIfExists</code> (in <code>referralManager.js</code>) reads the stored code and calls <code>applyLoyaltyReferralCode</code>. If no code is stored, exits silently. If the API call fails, signup is never blocked — the code stays in storage for a retry.</p>
+<h4>GraphQL</h4>
+<pre>mutation ApplyLoyaltyReferralCode($referralCode: String!) {
+  applyLoyaltyReferralCode(referralCode: $referralCode) {
+    referral {
+      userIdentifier
+      referralCode
+      points
+      createdAt
+      updatedAt
+    }
+  }
+}</pre>
+
+<hr>
+
+<h2>Refer &amp; Earn — Full Flow</h2>
+
+<table>
+  <tr><th>Step</th><th>What happens</th><th>File</th></tr>
+  <tr>
+    <td>1</td>
+    <td>User A opens <code>/loyalty-rewards</code>. Their <code>referralCode</code> comes from the <code>LoyaltyUser</code> query (<code>loyaltyUser.referralCode</code>) and is shown on the Refer &amp; Earn tab.</td>
+    <td><code>loyalty-rewards/refer-earn/refer-earn.jsx</code></td>
+  </tr>
+  <tr>
+    <td>2</td>
+    <td>User A shares the link: <code>https://&lt;store&gt;?referralCode=&lt;CODE&gt;</code> via WhatsApp / Email / SMS / Copy.</td>
+    <td><code>loyalty-rewards/refer-earn/refer-earn.jsx</code></td>
+  </tr>
+  <tr>
+    <td>3</td>
+    <td>User B opens the link. <code>?referralCode=</code> is read from the URL, saved to <code>localStorage</code> with a 7-day TTL, then stripped from the URL so it doesn't re-fire on refresh.</td>
+    <td><code>theme/providers/global-provider.jsx</code></td>
+  </tr>
+  <tr>
+    <td>4</td>
+    <td>User B opens the signup form. The referral code field is pre-filled from <code>localStorage</code>. If User B types a different code manually, it overrides the stored one.</td>
+    <td><code>theme/page-layouts/register/useRegister.jsx</code></td>
+  </tr>
+  <tr>
+    <td>5</td>
+    <td>User B submits signup + completes OTP. <code>onVerifySuccess</code> fires → <code>applyReferralIfExists()</code> runs → reads code from localStorage → calls <code>applyLoyaltyReferralCode</code>.</td>
+    <td><code>theme/page-layouts/register/useRegister.jsx</code></td>
+  </tr>
+  <tr>
+    <td>6</td>
+    <td>On API success: code removed from localStorage, both users get points. On failure: code stays in localStorage, signup proceeds normally — user is never blocked.</td>
+    <td><code>theme/b2b/api/modules/b2b-loyalty/referralManager.js</code></td>
+  </tr>
+</table>
+
+<h3>Code: Capture referral code from URL</h3>
+<p><span class="label">File:</span> <code>theme/providers/global-provider.jsx</code></p>
+<pre>import { setReferralCode } from "../b2b/api/modules/b2b-loyalty";
+
+// Inside ThemeProvider:
+const [searchParams, setSearchParams] = useSearchParams();
+
+useEffect(() => {
+  const code = searchParams.get("referralCode");
+  if (!code || !code.trim()) return;
+
+  setReferralCode(code.trim());   // validates + saves to localStorage
+
+  const next = new URLSearchParams(searchParams);
+  next.delete("referralCode");
+  setSearchParams(next, { replace: true });  // clean URL
+}, []);</pre>
+
+<h3>Code: Apply after OTP success</h3>
+<p><span class="label">File:</span> <code>theme/page-layouts/register/useRegister.jsx</code></p>
+<pre>import { getStoredReferralCode, setReferralCode, applyReferralIfExists }
+  from "../../b2b/api/modules/b2b-loyalty";
+
+const verifyDetailsProp = useVerifyDetails({
+  fpi,
+  verifyBothData,
+  onVerifySuccess: applyReferralIfExists,
+});
+
+const referralCodeDefault = getStoredReferralCode() ?? ""; // pre-fill the field
+
+const handleFormSubmit = (formData) => {
+  const trimmedCode = formData.referralCode?.trim();
+  if (trimmedCode) setReferralCode(trimmedCode); // save manually typed code
+  // ... signUp(user)
+};</pre>
+
+<hr>
+
+<h2>Theme Config Flags</h2>
+<p>These live in the theme's global config schema and are toggled from the Theme Editor (Global Settings).</p>
+<table>
+  <tr><th>Flag</th><th>Type</th><th>Default</th><th>What it controls</th></tr>
+  <tr>
+    <td><code>show_loyalty</code></td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Enables the <code>/loyalty-rewards</code> page. If <code>false</code>, the route redirects to <code>/</code> — nothing renders.</td>
+  </tr>
+  <tr>
+    <td><code>show_referral_code_field</code></td>
+    <td>boolean</td>
+    <td>false</td>
+    <td>Shows the referral code input on the signup form. Even when hidden, URL-based codes are still captured and applied silently.</td>
+  </tr>
+  <tr>
+    <td><code>referral_share_message</code></td>
+    <td>string</td>
+    <td>""</td>
+    <td>Pre-written message text used when sharing via WhatsApp / Email / SMS on the Refer &amp; Earn tab.</td>
+  </tr>
+</table>
+
+<h3>How show_loyalty gates the page</h3>
+<p><span class="label">File:</span> <code>theme/custom-templates/b2b/loyalty-rewards.jsx</code></p>
+<pre>const { globalConfig } = useThemeConfig({ fpi });
+const { show_loyalty = false } = globalConfig || {};
+
+useEffect(() => {
+  if (!show_loyalty) navigate("/");  // redirect away if feature is off
+}, [show_loyalty]);</pre>
+
+<h3>How show_referral_code_field controls the signup form</h3>
+<p><span class="label">File:</span> <code>theme/page-layouts/register/useRegister.jsx</code></p>
+<pre>const { show_referral_code_field = false } = globalConfig || {};
+
+return {
+  showReferralCodeField: show_referral_code_field,
+  referralCodeDefault,  // pre-filled value from localStorage
+};</pre>
+<div class="note"><strong>Note:</strong> Even when <code>show_referral_code_field</code> is <code>false</code>, the referral code from the URL is still captured silently and applied after signup. The flag only controls whether the input field is visible to the user.</div>
+
+</body>
+</html>

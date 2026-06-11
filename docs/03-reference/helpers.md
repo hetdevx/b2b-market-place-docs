@@ -10,7 +10,7 @@ Last Updated: 2026-03-14
 Last Reviewed: 2026-03-14
 Status: Approved
 
-All utility and helper modules live under `theme/helper/`. These are pure JS utilities — they do not import React and are consumed by pages, sections, and B2B templates.
+All utility and helper modules live under `theme/helper/`. The root-level and `b2b/` modules are plain JS utilities; React hooks live in `theme/helper/hooks/`. All are consumed by pages, sections, and B2B templates.
 
 ## General helpers — `theme/helper/`
 
@@ -25,6 +25,7 @@ All utility and helper modules live under `theme/helper/`. These are pure JS uti
 | `lru-cache.js` | LRU cache implementation (root-level, legacy) |
 | `ms.js` | Millisecond conversion utility |
 | `fpi-swr-wrapper.js` | SWR wrapper for FDK's FPI (Fynd Platform Integration) data fetching |
+| `prefetch-cache.js` | Module-level TTL cache for prefetched collection data (SPA-session scoped) |
 | `pdp-image-updater-extension.js` | Extension hook for updating PDP images from external sources |
 | `copilot-utils.js` | Utility functions for Copilot.live action registration |
 
@@ -40,6 +41,37 @@ All utility and helper modules live under `theme/helper/`. These are pure JS uti
 | `checkout.js` | B2B checkout helper — payment method selection, credit terms, GST validation |
 | `settle.js` | Promise settle utility — resolves all promises regardless of rejection (used for parallel price fetching) |
 
+## React hooks — `theme/helper/hooks/`
+
+| File | Purpose |
+|---|---|
+| `index.jsx` | Re-exports all hooks |
+| `hooks.jsx` | Misc shared hooks (`useLoggedInUser`, `useSnackbar`, etc.) |
+| `useAccounts.jsx` | Login/register/account flows |
+| `useAddress.jsx` | Address CRUD |
+| `useAddressFormSchema.jsx` | Address form schema builder |
+| `useAppConfig.jsx` | Application config access |
+| `useBackExitOverride.jsx` | Browser back-button override for tab flows |
+| `useConsole.jsx` | Debug console logging |
+| `useDeliverPromise.jsx` | Delivery promise/date formatting |
+| `useFpiQuery.jsx` | FPI GraphQL query with background updates |
+| `useGoogleMapConfig.jsx` | Google Maps API config |
+| `useLenderProfile.jsx` | Lender/credit profile fetching (SWR + FPI store) |
+| `useLocalStorage.jsx` | LocalStorage-backed state |
+| `useLocaleDirection.jsx` | RTL/LTR locale direction |
+| `usePincodeInput.jsx` | Pincode input handling |
+| `usePolling.jsx` | Interval polling |
+| `usePrefetchCollectionOnHover.jsx` | Prefetch collection data on link hover |
+| `usePrefetchProductsOnHover.jsx` | Prefetch product data on link hover |
+| `useSeoMeta.jsx` | SEO meta tags |
+| `useStateRef.jsx` | State + ref combo |
+| `useSyncedState.jsx` | State synced with a parent value |
+| `useThemeConfig.jsx` | Theme config access |
+| `useThemeFeature.jsx` | Theme feature checks (incl. cross-border detection) |
+| `useToggleState.jsx` | Boolean toggle state |
+| `useWindowWidth.jsx` | Window width tracking |
+| `useWishlist.jsx` | Wishlist add/remove |
+
 ## Nested utilities — `theme/helper/utils/`
 
 | File | Purpose |
@@ -48,7 +80,7 @@ All utility and helper modules live under `theme/helper/`. These are pure JS uti
 
 ## Usage guidelines
 
-- **Do not import from pages or sections** inside helpers. Helpers must remain side-effect free and framework agnostic.
+- **Do not import from pages or sections** inside helpers. Non-hook helpers must remain side-effect free and framework agnostic; only `hooks/` modules may import React.
 - B2B helpers in `helper/b2b/` may import from the B2B API layer (`theme/b2b/api/`) but not from component directories.
 - `settle.js` is designed for parallel fetch patterns — use it to prevent one failing price call from blocking others.
 - `auth-guard.js` is consumed by pages to redirect guests; it should not be called inside shared components.

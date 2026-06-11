@@ -6,26 +6,28 @@ sidebar_position: 6
 
 Owner: Frontend Platform Team
 Reviewers: Theme Team, QA
-Last Updated: 2026-03-14
-Last Reviewed: 2026-03-14
+Last Updated: 2026-06-11
+Last Reviewed: 2026-06-11
 Status: Approved
 
 This runbook covers upgrading `@gofynd/theme-template` and `fdk-store` — the two base packages that provide FDK template components and the GQL store.
 
 ## Packages involved
 
-| Package | Current source | Script |
+| Package | Current source | Upgrade method |
 |---|---|---|
-| `@gofynd/theme-template` | `github:gofynd/fdk-react-templates#b2b-v1.0.173` | `npm run refresh` |
-| `fdk-store` | `github:gofynd/fdk-store-gql#v3.0.67` | manual (see below) |
+| `@gofynd/theme-template` | `github:gofynd/fdk-react-templates#b2b-v1.0.277` | edit `package.json` tag (see below) |
+| `fdk-store` | `github:gofynd/fdk-store-gql#v3.0.67` | edit `package.json` tag, or `npm run refresh` for latest develop |
 
-## Upgrade via npm run refresh
+Check `package.json` for the tags currently in use — they move frequently.
+
+## Upgrade fdk-store via npm run refresh
 
 ```bash
 npm run refresh
 ```
 
-This uninstalls `fdk-store` and reinstalls it from the `develop` branch of the `shadowfire` repo. Use only when explicitly upgrading to the latest develop snapshot.
+This runs `npm uninstall fdk-store && npm install gitlab:fynd/regrowth/fynd-platform/themes/shadowfire.git#develop` — i.e., it reinstalls `fdk-store` from the `develop` branch of the internal GitLab `shadowfire` repo. Use only when explicitly upgrading to the latest develop snapshot (requires GitLab access).
 
 > **Warning:** `npm run refresh` points to `develop`, not a tagged release. Always review the diff before committing.
 
@@ -34,7 +36,7 @@ This uninstalls `fdk-store` and reinstalls it from the `develop` branch of the `
 Edit `package.json` and change the tag in the dependency:
 
 ```json
-"@gofynd/theme-template": "github:gofynd/fdk-react-templates#b2b-v1.0.174"
+"@gofynd/theme-template": "github:gofynd/fdk-react-templates#b2b-v1.0.278"
 ```
 
 Then install:
@@ -77,9 +79,9 @@ After upgrading either package:
 
 | Symptom | Likely cause | Fix |
 |---|---|---|
-| B2B size wrapper receives wrong props | `SizeWrapper` prop shape changed in base template | Update `b2b-size-wrapper.jsx` prop destructuring |
-| Price not displaying on PDP | `productPrice` GQL query shape changed | Update `usePriceDetails.jsx` |
-| Cart items not rendering | `cartItems` prop structure changed | Update cart section component |
+| B2B size wrapper receives wrong props | `SizeWrapper` prop shape changed in base template | Update `theme/b2b-page-layouts/pdp/components/b2b-size-wrapper/b2b-size-wrapper.jsx` prop destructuring |
+| Price not displaying on PDP | `productPrice` GQL query shape changed | Update `theme/b2b-page-layouts/pdp/price-details/usePriceDetails.jsx` |
+| Cart items not rendering | `cartItems` prop structure changed | Update `theme/sections/cart-items.jsx` |
 | `fdk-store` action name mismatch | Store action renamed | Search for the old action name and replace |
 
 ## Rolling back a bad upgrade

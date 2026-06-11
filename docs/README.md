@@ -2,13 +2,13 @@
 
 Owner: Frontend Platform Team
 Reviewers: Theme Team, QA
-Last Updated: 2026-03-14
-Last Reviewed: 2026-03-14
+Last Updated: 2026-06-11
+Last Reviewed: 2026-06-11
 Status: Approved
 
 ## Purpose
 
-This directory is the source-of-truth for all engineering documentation for the **Turbo B2B** FDK React Theme (v1.4.5). It covers architecture, development workflows, B2B feature reference, operations, and governance.
+This directory is the source-of-truth for all engineering documentation for the **Turbo B2B** FDK React Theme (v1.4.12). It covers architecture, development workflows, B2B feature reference, operations, and governance.
 
 ## Structure
 
@@ -37,3 +37,4 @@ This directory is the source-of-truth for all engineering documentation for the 
 
 - No unit or integration test suite is present; test setup is a known gap.
 - `npm run test` is a stub that exits with an error.
+- The `scripts/` directory referenced by the `serve`, `dev`, `publish:*`, and `upload-sections` npm scripts is not committed to the repo; use `fdk theme serve` for local development.

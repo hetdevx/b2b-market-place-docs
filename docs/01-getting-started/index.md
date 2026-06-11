@@ -6,8 +6,8 @@ sidebar_position: 1
 
 Owner: Frontend Platform Team
 Reviewers: Theme Team, QA
-Last Updated: 2026-03-14
-Last Reviewed: 2026-03-14
+Last Updated: 2026-06-11
+Last Reviewed: 2026-06-11
 Status: Approved
 
 This section covers everything you need to go from zero to a running local development environment.

@@ -6,8 +6,8 @@ sidebar_position: 5
 
 Owner: Frontend Platform Team
 Reviewers: B2B Team, QA
-Last Updated: 2026-03-14
-Last Reviewed: 2026-03-14
+Last Updated: 2026-06-11
+Last Reviewed: 2026-06-11
 Status: Approved
 
 This runbook covers the full lifecycle of adding a new B2B-specific feature to the theme.
@@ -40,42 +40,47 @@ theme/custom-templates/b2b/my-feature/my-feature.less
 
 ### 2. Gate with FeatureGuard (if feature-flag controlled)
 
-Import `FeatureGuard` to conditionally render the feature based on account-level flags:
+Wrap the page/component in `FeatureGuard` (`theme/components/FeatureGuard/`) to conditionally render based on app-level feature flags. Real example from `theme/custom-templates/b2b/quotes.jsx`:
 
 ```jsx
-import FeatureGuard from "../../components/FeatureGuard/FeatureGuard";
+import FeatureGuard from "../../components/FeatureGuard";
 
-function MyFeatureWrapper() {
+function Quotes() {
   return (
-    <FeatureGuard featureKey="my_b2b_feature">
-      <MyFeature />
+    <FeatureGuard
+      featureName="quotation_management"
+      errorMessage="Quotes Management is not available"
+      redirectTo="/"
+    >
+      <ListQR />
     </FeatureGuard>
   );
 }
 ```
 
-The feature flags are fetched from `theme/b2b/api/modules/features-api/feature-api.js`.
+Key props: `featureName` (required), `redirectTo`, `errorMessage`, `fallback`, `showError`, `allowRedirect`. Flags are resolved via the `useFPIAppConfig` hook (`theme/helper/hooks/useAppConfig.jsx`), which reads the app config fetched by `theme/b2b/api/modules/features-api/feature-api.js`.
 
 ### 3. Add an API module (if a new endpoint is needed)
 
 Create a new module in `theme/b2b/api/modules/`:
 
 ```
-theme/b2b/api/modules/my-feature/index.js
+theme/b2b/api/modules/my-feature/my-feature.js
+theme/b2b/api/modules/my-feature/index.js   # re-exports
 ```
 
-Use the shared Axios instance:
+Use the shared Axios instance (`theme/b2b/api/axios.js`, exported as `consoleAxios`, base URL `/ext/b2b-console`):
 
 ```js
-import axios from "../../axios";
+import consoleAxios from "../../axios";
 
-export const fetchMyFeatureData = async (params) => {
-  const { data } = await axios.get("/api/v1/my-feature", { params });
-  return data;
-};
+export async function fetchMyFeatureData(params) {
+  const res = await consoleAxios.get("/my-feature/v1/data", { params });
+  return res.data;
+}
 ```
 
-Use SWR for reactive fetching in components:
+Use SWR for reactive fetching in components (see `theme/custom-templates/b2b/distributed-dashboard/hooks/` for real examples):
 
 ```js
 import useSWR from "swr";
@@ -86,19 +91,32 @@ function useMyFeature(params) {
 }
 ```
 
-### 4. Register a full-page template (if applicable)
+A shared `SWRProvider` with sensible B2B defaults lives in `theme/b2b/api/swr.js`.
 
-If you added a full-page template, register it in `theme/custom-templates/index.jsx`:
+### 4. Register a full-page template route (if applicable)
+
+If you added a full-page template, register it in `theme/custom-templates/index.jsx`. The file's default export is an **array of React Router `<Route>` elements**:
 
 ```jsx
-import MyFeature from "./b2b/my-feature/my-feature";
+const MyFeature = lazy(() => import("./b2b/my-feature/my-feature"));
 
-// Add to the templates map:
-export const templates = {
-  // ... existing templates
-  "b2b-my-feature": MyFeature,
-};
+// Add to the default-exported array:
+<Route
+  path="profile/my-feature"
+  element={
+    <ProfileContainer>
+      <Suspense fallback={<LoadingFallback />}>
+        <MyFeature />
+      </Suspense>
+    </ProfileContainer>
+  }
+  handle={{
+    pageType: "c:::my-feature",
+  }}
+/>,
 ```
+
+Use `lazy()` + `<Suspense>` like the existing routes to keep the initial bundle small.
 
 ### 5. Update documentation
 
@@ -112,7 +130,7 @@ After implementing:
 ### 6. Test locally
 
 ```bash
-npm run dev
+fdk theme serve
 ```
 
 Verify in FDK preview:
